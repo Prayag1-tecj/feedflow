@@ -1,0 +1,10 @@
+Django==5.2.3
+djangorestframework
+djangorestframework-simplejwt
+psycopg2-binary
+python-decouple
+django-cors-headers
+redis
+django-redis
+drf-spectacular
+playwright
