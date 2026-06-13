@@ -1,0 +1,26 @@
+# Python
+backend/venv/
+backend/__pycache__/
+*.pyc
+
+# Environment Variables
+.env
+
+# Django
+db.sqlite3
+
+# VS Code
+.vscode/
+
+# Playwright
+backend/sessions/
+
+# Logs
+*.log
+
+# Expo
+frontend/node_modules/
+frontend/.expo/
+
+# Mac
+.DS_Store
