@@ -5,6 +5,7 @@ backend/__pycache__/
 
 # Environment Variables
 .env
+backend/.env
 
 # Django
 db.sqlite3
