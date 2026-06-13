@@ -22,6 +22,16 @@ class RegisterSerializer(serializers.ModelSerializer):
             "full_name",
         ]
 
+    def validate_email(self, value):
+        if User.objects.filter(
+            email=value
+        ).exists():
+            raise serializers.ValidationError(
+                "Email already exists"
+            )
+
+        return value  
+
     def create(self, validated_data):
         full_name = validated_data.pop(
             "full_name"
