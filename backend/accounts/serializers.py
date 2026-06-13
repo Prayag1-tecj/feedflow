@@ -78,3 +78,23 @@ class LoginSerializer(serializers.Serializer):
             ),
             "refresh": str(refresh),
         }
+
+class ProfileSerializer(serializers.ModelSerializer):
+    full_name = serializers.CharField(
+        source="profile.full_name"
+    )
+
+    onboarding_completed = serializers.BooleanField(
+        source="profile.onboarding_completed"
+    )
+
+    class Meta:
+        model = User
+
+        fields = [
+            "id",
+            "username",
+            "email",
+            "full_name",
+            "onboarding_completed",
+        ]

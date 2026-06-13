@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 
 from .serializers import (
     LoginSerializer,
+     ProfileSerializer,
     RegisterSerializer,
 )
 
@@ -47,4 +48,16 @@ class LoginView(APIView):
         return Response(
             serializer.validated_data,
             status=status.HTTP_200_OK,
+        )
+
+
+class ProfileView(APIView):
+
+    def get(self, request):
+        serializer = ProfileSerializer(
+            request.user
+        )
+
+        return Response(
+            serializer.data
         )
