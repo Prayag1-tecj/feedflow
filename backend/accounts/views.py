@@ -2,7 +2,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import RegisterSerializer
+from .serializers import (
+    LoginSerializer,
+    RegisterSerializer,
+)
 
 
 class RegisterView(APIView):
@@ -26,4 +29,22 @@ class RegisterView(APIView):
                 "User registered successfully"
             },
             status=status.HTTP_201_CREATED,
+        )
+
+class LoginView(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def post(self, request):
+        serializer = LoginSerializer(
+            data=request.data
+        )
+
+        serializer.is_valid(
+            raise_exception=True
+        )
+
+        return Response(
+            serializer.validated_data,
+            status=status.HTTP_200_OK,
         )
